@@ -19,11 +19,11 @@
       <p class="card-text">{{ $product->category->name }}</p>
     </div>
     <div class="card-body">
-      <a href="#" class="btn btn-sm btn-primary">Редактировать</a>
+      <a href="{{ route('products.edit', $product) }}" class="btn btn-sm btn-primary">Редактировать</a>
       <form action="{{ route('products.destroy', $product->id) }}" method="POST" class="d-inline">
         @csrf
         @method('DELETE')
-        <button type="submit" class="btn btn-sm btn-danger">Удалить</button>
+        <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Удалить продукт?')">Удалить</button>
       </form>
     </div>
   </div>
