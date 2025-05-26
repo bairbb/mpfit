@@ -11,14 +11,20 @@
       <h4 class="card-title">{{ $product->name }}</h4>
     </div>
     <div class="card-body">
-      <h6 class="card-subtitle text-muted">Описание</h6>
+      <h6 class="card-subtitle mb-2">Описание</h6>
       <p class="card-text">{{ $product->description }}</p>
-      <h6 class="card-subtitle text-muted">Категория</h6>
+    </div>
+    <div class="card-body">
+      <h6 class="card-subtitle mb-2">Категория</h6>
       <p class="card-text">{{ $product->category->name }}</p>
     </div>
     <div class="card-body">
-      <a href="#" class="card-link">Редактировать</a>
-      <a href="#" class="card-link">Удалить</a>
+      <a href="#" class="btn btn-sm btn-primary">Редактировать</a>
+      <form action="{{ route('products.destroy', $product->id) }}" method="POST" class="d-inline">
+        @csrf
+        @method('DELETE')
+        <button type="submit" class="btn btn-sm btn-danger">Удалить</button>
+      </form>
     </div>
   </div>
 @endsection

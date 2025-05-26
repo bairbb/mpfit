@@ -20,3 +20,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [ProductController::class, 'index'])->name('products.index');
 Route::get('/{product}', [ProductController::class, 'show'])->name('products.show');
+Route::delete('/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
