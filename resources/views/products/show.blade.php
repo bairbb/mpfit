@@ -23,6 +23,28 @@
       <p class="card-text">{{ $product->category->name }}</p>
     </div>
     <div class="card-body">
+      <form action="{{ route('orders.create') }}" method="GET" class="mb-3">
+        @csrf
+        <input type="hidden" name="product" value="{{ $product }}">
+        
+        <div class="row">
+          <div class="col-auto">
+            <input type="number" 
+                   class="form-control" 
+                   name="quantity" 
+                   id="quantity" 
+                   value="{{ old('quantity', 1) }}" 
+                   min="1" 
+                   style="width: 80px"
+                   required>
+          </div>
+          <div class="col-auto">
+            <button type="submit" class="btn btn-sm btn-info">Заказать</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="card-body">
       <a href="{{ route('products.edit', $product) }}" class="btn btn-sm btn-primary">Редактировать</a>
       <form action="{{ route('products.destroy', $product->id) }}" method="POST" class="d-inline">
         @csrf

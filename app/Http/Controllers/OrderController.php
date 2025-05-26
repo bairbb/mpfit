@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Order;
 use App\Http\Requests\StoreOrderRequest;
 use App\Http\Requests\UpdateOrderRequest;
+use App\Models\Product;
+use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
@@ -23,9 +25,11 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Product $product, Request $request)
     {
-        //
+        dd($product->toArray());
+        $quantity = $request->quantity;
+        return view('orders.create', compact('product', 'quantity'));
     }
 
     /**

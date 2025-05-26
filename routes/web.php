@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,3 +26,7 @@ Route::get('/products/{product}/edit', [ProductController::class, 'edit'])->name
 Route::patch('/products/{product}', [ProductController::class, 'update'])->name('products.update');
 Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show');
 Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
+
+Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
+Route::get('/orders/create', [OrderController::class, 'create'])->name('orders.create');
+Route::post('/orders', [OrderController::class, 'store'])->name('orders.store');
