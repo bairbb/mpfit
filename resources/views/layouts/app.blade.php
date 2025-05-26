@@ -10,10 +10,11 @@
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
     <div class="container">
-      {{-- <a class="navbar-brand" href="{{ route('products.index') }}">Магазин</a> --}}
+      <a class="navbar-brand" href="/">Главная</a>
       <div class="navbar-nav">
         <a class="nav-link" href="{{ route('products.index') }}">Товары</a>
         {{-- <a class="nav-link" href="{{ route('orders.index') }}">Заказы</a> --}}
+        <a class="nav-link" href="{{ route('products.create') }}">Добавить товар</a>
       </div>
     </div>
   </nav>

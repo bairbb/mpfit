@@ -11,6 +11,10 @@
       <h4 class="card-title">{{ $product->name }}</h4>
     </div>
     <div class="card-body">
+      <h6 class="card-subtitle mb-2">Цена</h6>
+      <p class="card-text">{{ $product->price }} руб</p>
+    </div>
+    <div class="card-body">
       <h6 class="card-subtitle mb-2">Описание</h6>
       <p class="card-text">{{ $product->description }}</p>
     </div>

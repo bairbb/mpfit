@@ -28,7 +28,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+        return view('products.create', compact('categories'));
     }
 
     /**
@@ -39,7 +40,8 @@ class ProductController extends Controller
      */
     public function store(StoreProductRequest $request)
     {
-        //
+        $product = Product::create($request->validated());
+        return redirect()->route('products.show', compact('product'));
     }
 
     /**

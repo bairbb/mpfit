@@ -36,7 +36,8 @@
                step="0.01" 
                class="form-control" 
                name="price" 
-               id="price" 
+               id="price"
+               placeholder="Введите цену" 
                value="{{ old('price', $product->price) }}"
         />
       </div>
