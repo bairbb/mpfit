@@ -44,7 +44,13 @@ php artisan key:generate
 php artisan migrate
 ```
 
-7. Запустите сервер разработки:
+7. Заполните базу данных тестовыми данными:
+
+```bash
+php artisan db:seed
+```
+
+8. Запустите сервер разработки:
 
 ```bash
 php artisan serve
