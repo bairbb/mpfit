@@ -13,7 +13,7 @@ class StoreOrderRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,13 @@ class StoreOrderRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'lastname' => 'required|string|max:255',
+            'name' => 'required|string|max:255',
+            'surname' => 'required|string|max:255',
+            // 'status' => 'required|string|in:pending,processing,completed,cancelled',
+            'comment' => 'nullable|string|max:1000',
+            'product_id' => 'required|exists:products,id',
+            'quantity' => 'required|integer|min:1',
         ];
     }
 }

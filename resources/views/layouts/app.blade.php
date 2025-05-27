@@ -13,7 +13,7 @@
       <a class="navbar-brand" href="/">Главная</a>
       <div class="navbar-nav">
         <a class="nav-link" href="{{ route('products.index') }}">Товары</a>
-        {{-- <a class="nav-link" href="{{ route('orders.index') }}">Заказы</a> --}}
+        <a class="nav-link" href="{{ route('orders.index') }}">Заказы</a>
         <a class="nav-link" href="{{ route('products.create') }}">Добавить товар</a>
       </div>
     </div>

@@ -17,7 +17,8 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        $orders = Order::with('product')->orderBy('created_at', 'desc')->get();
+        return view('orders.index', compact('orders'));
     }
 
     /**
@@ -25,10 +26,11 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Product $product, Request $request)
+    public function create(Request $request)
     {
-        dd($product->toArray());
-        $quantity = $request->quantity;
+        $product_id = $request->input('product_id');
+        $product = Product::findOrFail($product_id);
+        $quantity = $request->query('quantity', 1);
         return view('orders.create', compact('product', 'quantity'));
     }
 
@@ -40,7 +42,9 @@ class OrderController extends Controller
      */
     public function store(StoreOrderRequest $request)
     {
-        //
+        $order = Order::create($request->validated());
+        // dd($order->toArray());
+        return redirect()->route('orders.show', compact('order'));
     }
 
     /**
@@ -51,7 +55,8 @@ class OrderController extends Controller
      */
     public function show(Order $order)
     {
-        //
+        // dd($order->toArray());
+        return view('orders.show', compact('order'));
     }
 
     /**
@@ -62,7 +67,8 @@ class OrderController extends Controller
      */
     public function edit(Order $order)
     {
-        //
+        $order->update(['status' => 'completed']);
+        return redirect()->route('orders.show', compact('order'));
     }
 
     /**

@@ -25,7 +25,7 @@
     <div class="card-body">
       <form action="{{ route('orders.create') }}" method="GET" class="mb-3">
         @csrf
-        <input type="hidden" name="product" value="{{ $product }}">
+        <input type="hidden" name="product_id" value="{{ $product->id }}">
         
         <div class="row">
           <div class="col-auto">
